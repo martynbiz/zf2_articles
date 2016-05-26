@@ -15,5 +15,8 @@
         "psr-4": {
             "Article\\": "module/Article/src/Article/"
         }
+    },
+    "scripts": {
+	    "serve": "php -S localhost:8000 -t public/"
     }
 }
