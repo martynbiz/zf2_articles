@@ -1,29 +1,24 @@
 <?php
-// module/Article/view/article/article/index.phtml:
 
 $title = 'My articles';
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 <p>
-    <a href="<?php echo $this->url('article', array('action'=>'add'));?>">Add new article</a>
+    <a href="/article/add">Add new article</a>
 </p>
 
 <table class="table">
 <tr>
     <th>Title</th>
-    <th>Artist</th>
     <th>&nbsp;</th>
 </tr>
 <?php foreach ($articles as $article) : ?>
 <tr>
     <td><?php echo $this->escapeHtml($article->title);?></td>
-    <td><?php echo $this->escapeHtml($article->artist);?></td>
     <td>
-        <a href="<?php echo $this->url('article',
-            array('action'=>'edit', 'id' => $article->id));?>">Edit</a>
-        <a href="<?php echo $this->url('article',
-            array('action'=>'delete', 'id' => $article->id));?>">Delete</a>
+        <a href="/article/<?php echo $article->id; ?>/edit">Edit</a>
+        <a href="/article/<?php echo $article->id; ?>/delete">Delete</a>
     </td>
 </tr>
 <?php endforeach; ?>

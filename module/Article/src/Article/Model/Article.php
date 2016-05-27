@@ -18,6 +18,14 @@ class Article implements InputFilterAwareInterface
         $this->title  = (!empty($data['title'])) ? $data['title'] : null;
     }
 
+    public function toArray()
+    {
+        return array(
+            'id' => $this->id,
+            'title' => $this->title,
+        );
+    }
+
     public function setInputFilter(InputFilterInterface $inputFilter)
     {
         throw new \Exception("Not used");
