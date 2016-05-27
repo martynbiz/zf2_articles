@@ -31,19 +31,17 @@ class ArticleController extends AbstractActionController
     public function addAction()
     {
         $form = new ArticleForm();
-        $form->get('submit')->setValue('Add');
 
-        $request = $this->getRequest();
-        if ($request->isPost()) {
+        if ($this->getRequest()->isPost()) {
             $article = new Article();
             $form->setInputFilter($article->getInputFilter());
-            $form->setData($request->getPost());
+            $form->setData($this->getRequest()->getPost());
 
             if ($form->isValid()) {
                 $article->exchangeArray($form->getData());
                 $this->getArticleTable()->saveArticle($article);
 
-                // Redirect to list of articles
+                // Redirect to index page
                 return $this->redirect()->toUrl('/article');
             }
         }
@@ -59,26 +57,24 @@ class ArticleController extends AbstractActionController
         $id = $this->params()->fromRoute('id', 0);
         $article = $this->getArticleTable()->getArticle($id);
 
+        // initiate the form with the values from article
         $form = new ArticleForm();
-        $form->get('submit')->setValue('Update');
         $form->setData($article->toArray());
 
-        $request = $this->getRequest();
-        if ($request->isPut()) {
+        if ($this->getRequest()->isPost()) {
             $form->setInputFilter($article->getInputFilter());
-            $form->setData($request->getPost());
+            $form->setData($this->getRequest()->getPost());
 
             if ($form->isValid()) {
                 $article->exchangeArray($form->getData());
                 $this->getArticleTable()->saveArticle($article);
 
-                // Redirect to list of articles
-                return $this->redirect()->toUrl('article/' . $id);
+                // Redirect to article page
+                return $this->redirect()->toUrl('/article/' . $id);
             }
         }
 
         return new ViewModel(array(
-            'article' => $this->getArticleTable()->getArticle($id),
             'form' => $form,
         ));
     }
@@ -86,9 +82,20 @@ class ArticleController extends AbstractActionController
     public function deleteAction()
     {
         $id = $this->params()->fromRoute('id', 0);
+        $article = $this->getArticleTable()->getArticle($id);
+
+        $form = new ArticleForm();
+        $form->setData($article->toArray());
+
+        if ($this->getRequest()->isPost()) {
+            $this->getArticleTable()->deleteArticle($article);
+
+            // Redirect to list of articles
+            return $this->redirect()->toUrl('/article/' . $id);
+        }
 
         return new ViewModel(array(
-            'article' => $this->getArticleTable()->getArticle($id),
+            'form' => $form,
         ));
     }
 

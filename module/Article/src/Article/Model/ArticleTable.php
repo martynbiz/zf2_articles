@@ -47,8 +47,8 @@ class ArticleTable
         }
     }
 
-    public function deleteArticle($id)
+    public function deleteArticle(Article $article)
     {
-        $this->tableGateway->delete(array('id' => (int) $id));
+        $this->tableGateway->delete(array('id' => (int) $article->id));
     }
 }
