@@ -1,13 +1,6 @@
 <?php
-// module/Album/view/article/article/add.phtml:
-
 $title = 'Edit article';
 $this->headTitle($title);
-
-
-
-// $form->setAttribute('action', $this->url('article', array('action' => 'add')));
-// $form->prepare();
 ?>
 <h1><?= $this->escapeHtml($title); ?></h1>
 
@@ -23,28 +16,7 @@ $this->headTitle($title);
         <input type="text" name="title" id="title" value="<?= $form->get('title')->getValue() ?>">
     </div>
 
-    <?php //echo $this->partial('partial.phtml', compact('form')); ?>
-
     <input type="hidden" name="id" value="<?= $form->get('id')->getValue() ?>">
-    <!-- <input type="hidden" name="_method" value="PUT"> -->
 
     <button type="submit" class="btn btn-default">Update</button>
 </form>
-<?php
-
-// echo $this->form()->openTag($form);
-// echo $this->formHidden($form->get('id'));
-// echo $this->formRow($form->get('title'));
-// echo $this->formSubmit($form->get('submit'));
-// echo $this->form()->closeTag();
-
-/*
-<?= $this->form()->openTag($form); ?>
-
-<input type="hidden" name="id" value="<?= $form->get('id')->getValue() ?>">
-<input type="text" name="id" value="<?= $form->get('title')->getValue() ?>">
-
-<button name="submit" type="submit">Add article</button>
-
-<?= $this->form()->closeTag() ?>
-*/
