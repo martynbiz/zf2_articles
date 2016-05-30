@@ -14,7 +14,7 @@ class ArticleController extends BaseController
             //...
         ) );
 
-        return new ViewModel(array(
+        return $this->render('article/article/index', array(
             'articles' => $articles,
         ));
     }
@@ -29,7 +29,7 @@ class ArticleController extends BaseController
             'id' => $id,
         ));
 
-        return new ViewModel(array(
+        return $this->render('article/article/get', array(
             'article' => $article,
         ));
     }
