@@ -1,0 +1,25 @@
+<?php
+
+$title = 'My articles';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="/article/add">Add new article</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>Title</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($articles as $article) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($article->title);?></td>
+    <td>
+        <a href="/article/<?php echo $article->id; ?>/edit">Edit</a>
+        <a href="/article/<?php echo $article->id; ?>/delete">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
