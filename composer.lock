@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a861c08aa7001eabcf2bed66eb8bd147",
-    "content-hash": "82a11250b3a5b329f815e8cacac34daf",
+    "hash": "8cb3c88e8ccad162e7bd67c91f29aa71",
+    "content-hash": "4fe05066748e9d37e02fedbea54d2da7",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -87,6 +87,54 @@
                 "instantiate"
             ],
             "time": "2015-06-14 21:17:01"
+        },
+        {
+            "name": "martynbiz/php-mongo",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/martynbiz/php-mongo.git",
+                "reference": "c4dacc1fb1f29870893c6f093a54bd98e6c0dddc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/martynbiz/php-mongo/zipball/c4dacc1fb1f29870893c6f093a54bd98e6c0dddc",
+                "reference": "c4dacc1fb1f29870893c6f093a54bd98e6c0dddc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.8.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MartynBiz\\Mongo\\": "src/"
+                },
+                "classmap": [
+                    "tests"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martyn Bissett",
+                    "email": "martynbissett@yahoo.co.uk",
+                    "homepage": "http://martyn.biz",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP ODM for MongoDB.",
+            "homepage": "http://github.com/martynbiz/php-mongo",
+            "keywords": [
+                "mongo"
+            ],
+            "time": "2016-05-21 01:55:55"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -4293,7 +4341,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "martynbiz/php-mongo": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

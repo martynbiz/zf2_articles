@@ -4,27 +4,19 @@ namespace Article\Model;
 use Zend\InputFilter\InputFilter;
 use Zend\InputFilter\InputFilterAwareInterface;
 use Zend\InputFilter\InputFilterInterface;
+use MartynBiz\Mongo\Mongo;
 
-class Article implements InputFilterAwareInterface
+class Article extends Mongo implements InputFilterAwareInterface
 {
-    public $id;
-    public $title;
+    // required - collection this model refers to
+    protected static $collection = 'articles';
+
+    // required - define on the fields that can be saved
+    protected static $whitelist = array(
+        'title',
+    );
 
     protected $inputFilter;
-
-    public function exchangeArray($data)
-    {
-        $this->id     = (!empty($data['id'])) ? $data['id'] : null;
-        $this->title  = (!empty($data['title'])) ? $data['title'] : null;
-    }
-
-    public function toArray()
-    {
-        return array(
-            'id' => $this->id,
-            'title' => $this->title,
-        );
-    }
 
     public function setInputFilter(InputFilterInterface $inputFilter)
     {

@@ -33,17 +33,19 @@ class Module implements AutoloaderProviderInterface, ConfigProviderInterface
     {
         return array(
             'factories' => array(
-                'Article\Model\ArticleTable' =>  function($sm) {
-                    $tableGateway = $sm->get('ArticleTableGateway');
-                    $table = new ArticleTable($tableGateway);
-                    return $table;
+                'Article\Model\Article' =>  function($sm) {
+                    // $tableGateway = $sm->get('ArticleTableGateway');
+                    // $table = new ArticleTable($tableGateway);
+                    // return $table;
+
+                    return new Article();
                 },
-                'ArticleTableGateway' => function ($sm) {
-                    $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
-                    $resultSetPrototype = new ResultSet();
-                    $resultSetPrototype->setArrayObjectPrototype(new Article());
-                    return new TableGateway('article', $dbAdapter, null, $resultSetPrototype);
-                },
+                // 'ArticleTableGateway' => function ($sm) {
+                //     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+                //     $resultSetPrototype = new ResultSet();
+                //     $resultSetPrototype->setArrayObjectPrototype(new Article());
+                //     return new TableGateway('article', $dbAdapter, null, $resultSetPrototype);
+                // },
             ),
         );
     }

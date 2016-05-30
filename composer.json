@@ -7,9 +7,12 @@
         "zf2"
     ],
     "homepage": "http://framework.zend.com/",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": ">=5.5",
         "zendframework/zendframework": "~2.5",
-        "zendframework/zftool": "^0.1.0"
+        "zendframework/zftool": "^0.1.0",
+        "martynbiz/php-mongo": "dev-master"
     }
 }
