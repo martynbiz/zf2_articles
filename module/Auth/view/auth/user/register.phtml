@@ -1,0 +1,39 @@
+<?php
+$title = 'Register';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title); ?></h1>
+
+<?php if (count($errors)): ?>
+    <div class="alert alert-danger">
+        <?php var_dump($errors); ?>
+    </div>
+<?php endif; ?>
+
+<div class="container">
+    <form method="post" action="/user/register">
+        <div class="form-group">
+            <label for="first_name"><?= $form->get('first_name')->getLabel() ?></label>
+            <input class="form-control" type="text" name="first_name" id="first_name" value="<?= $form->get('first_name')->getValue() ?>">
+        </div>
+
+        <div class="form-group">
+            <label for="last_name"><?= $form->get('last_name')->getLabel() ?></label>
+            <input class="form-control" type="text" name="last_name" id="last_name" value="<?= $form->get('last_name')->getValue() ?>">
+        </div>
+
+        <div class="form-group">
+            <label for="email"><?= $form->get('email')->getLabel() ?></label>
+            <input class="form-control" type="email" name="email" id="email" value="<?= $form->get('email')->getValue() ?>">
+        </div>
+
+        <div class="form-group">
+            <label for="password"><?= $form->get('password')->getLabel() ?></label>
+            <input class="form-control" type="password" name="password" id="password" value="<?= $form->get('password')->getValue() ?>">
+        </div>
+
+        <?= $this->formHidden($form->get('id')) ?>
+
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
