@@ -1,3 +1,6 @@
+* zendframework/zftool
+* models - https://github.com/doctrine/DoctrineMongoODMModule
 * authentication module
-* rest routes
 * acl
+
+* plates templates - read about renderer, do we need helpers (do we need form?)

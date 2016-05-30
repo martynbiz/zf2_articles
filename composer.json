@@ -9,9 +9,7 @@
     "homepage": "http://framework.zend.com/",
     "require": {
         "php": ">=5.5",
-        "zendframework/zendframework": "~2.5"
-    },
-    "scripts": {
-	    "serve": "php -S localhost:8000 -t public/"
+        "zendframework/zendframework": "~2.5",
+        "zendframework/zftool": "^0.1.0"
     }
 }
